@@ -1,9 +1,9 @@
 {
   "name": "camera-app",
-  "version": "0.0.0",
+  "version": "0.0.1-SNAPSHOT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --proxy-config proxy.json",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",

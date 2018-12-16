@@ -14,7 +14,7 @@ export const environment = {
   /**
    * Use mockUp data mode in the services.
    */
-  mockUpMode: true
+  mockUpMode: false
 
 };
 
