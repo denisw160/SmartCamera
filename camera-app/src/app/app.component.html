@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <!-- Header-Icon & Application Title -->
+  <img src="../assets/header-icon.png" alt="Header Icon" height="32" width="32"/>
+  <a class="navbar-brand mr-auto" style="margin-left: 15px" routerLink="/" routerLinkActive="active">{{title}}</a>
+
+  <!-- Minimized NavBar on smaller devices -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+          aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- NavBar Links -->
+  <div id="navbarCollapse" class="collapse navbar-collapse">
+    <ul class="navbar-nav ml-auto ">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/upload" routerLinkActive="active">Upload</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/browse" routerLinkActive="active">Browse</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container content">
+  <!-- Routed components go here -->
+  <router-outlet></router-outlet>
+</div>
