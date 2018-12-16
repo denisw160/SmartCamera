@@ -24,12 +24,10 @@ export class UploadComponent implements OnInit {
   }
 
   onUpload() {
-    console.log(this.selectedFile); // You can use FormData upload to backend server
-
     const upload = new UploadModel();
-    upload.file = this.selectedFile;
     upload.name = this.selectedFile.name;
-    this._api.uploadImage(upload).subscribe(r => this.success = r.success, () => this.success = false);
+
+    this._api.uploadImage(upload, this.selectedFile).subscribe(r => this.success = r.success, () => this.success = false);
   }
 
 }

@@ -13,12 +13,6 @@ import {UploadResponseModel} from './model/uploadResponse.model';
 })
 export class ApiService {
 
-  private httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json'
-    })
-  };
-
   private readonly mockUpMode: boolean;
 
   constructor(private _http: HttpClient) {
@@ -33,18 +27,18 @@ export class ApiService {
     if (this.mockUpMode) {
       return this._http.get<ImageModel[]>('/assets/mock_api_images.json');
     } else {
-      return this._http.get<ImageModel[]>('/api/images');
+      return this._http.get<ImageModel[]>('/api/image');
     }
   }
 
   /**
    * Query all details for the image.
    */
-  getImageDetails(imageId: string): Observable<ImageDetailModel[]> {
+  getImageDetails(idImage: string): Observable<ImageDetailModel[]> {
     if (this.mockUpMode) {
       return this._http.get<ImageDetailModel[]>('/assets/mock_api_image-details.json');
     } else {
-      return this._http.get<ImageDetailModel[]>('/api/image/' + imageId + '/details');
+      return this._http.get<ImageDetailModel[]>('/api/image/' + idImage + '/detail');
     }
   }
 
@@ -52,13 +46,25 @@ export class ApiService {
    * Post the data with the image to the backend.
    * The server return the state of the transmission.
    *
-   * @param upload Parameter
+   * @param upload Parameter of the upload
+   * @param uploadFile File for upload
    */
-  uploadImage(upload: UploadModel): Observable<UploadResponseModel> {
+  uploadImage(upload: UploadModel, uploadFile: File): Observable<UploadResponseModel> {
     if (this.mockUpMode) {
       return this._http.get<UploadResponseModel>('/assets/mock_api_upload-response.json');
     } else {
-      return this._http.post<UploadResponseModel>('/api/upload', upload, this.httpOptions);
+      const httpOptions = {
+        headers: new HttpHeaders({
+          'Enctype': 'multipart/form-data',
+          'Accept': 'application/json'
+        })
+      };
+
+      const formData = new FormData();
+      formData.append('upload', JSON.stringify(upload));
+      formData.append('uploadFile', uploadFile, uploadFile.name);
+
+      return this._http.post<UploadResponseModel>('/api/upload', formData, httpOptions);
     }
   }
 

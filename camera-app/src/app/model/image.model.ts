@@ -8,7 +8,6 @@ export class ImageModel {
   timestamp: Date;
   processed: boolean;
   tags: number;
-  imageUrl: string;
 
   constructor() {
   }

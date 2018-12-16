@@ -20,6 +20,8 @@
           </div>
         </div>
       </li>
+
+      <li class="list-group-item" *ngIf="images==null || images.length==0">No data</li>
     </ul>
 
     <div class="small text-muted" style="padding-top: 15px">
@@ -59,8 +61,8 @@
     </table>
 
     <div class="text-center">
-      <img class="img-fluid rounded" src="{{selectedImage.imageUrl}}"
-           *ngIf="selectedImage!=null && selectedImage.imageUrl!=null">
+      <img class="img-fluid rounded" src="/image/{{selectedImage.id}}"
+           *ngIf="selectedImage!=null && selectedImage.id!=null">
     </div>
   </div>
 
