@@ -1,3 +1,25 @@
-<p>
-  upload works!
-</p>
+<div class="text-center">
+
+  <div>
+    <i class="fas fa-camera" style="font-size: 22em;"></i>
+  </div>
+
+  <div class="custom-file" style="max-width: 352px;">
+    <input id="image" type="file" capture="camera" accept="image/*" class="custom-file-input"
+           (change)="onFileSelected($event)">
+    <label class="custom-file-label" for="image" *ngIf="selectedFile==null">Choose file</label>
+    <label class="custom-file-label" for="image" *ngIf="selectedFile!=null">{{selectedFile.name}}</label>
+  </div>
+
+  <div style="margin-top: 25px;margin-bottom: 25px;">
+    <button type="button" class="btn btn-primary" (click)="onUpload()" [disabled]="selectedFile==null">Upload</button>
+  </div>
+
+  <div class="alert alert-success" role="alert" *ngIf="success!=null && success">
+    Upload success - goto <a routerLink="/browse">browse</a>
+  </div>
+  <div class="alert alert-danger" role="alert" *ngIf="success!=null && !success">
+    Upload failed - retry later
+  </div>
+
+</div>

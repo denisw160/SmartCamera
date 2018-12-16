@@ -57,6 +57,11 @@
       </tr>
       </tbody>
     </table>
+
+    <div class="text-center">
+      <img class="img-fluid rounded" src="{{selectedImage.imageUrl}}"
+           *ngIf="selectedImage!=null && selectedImage.imageUrl!=null">
+    </div>
   </div>
 
 </div>
