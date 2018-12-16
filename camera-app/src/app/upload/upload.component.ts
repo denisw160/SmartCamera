@@ -29,7 +29,7 @@ export class UploadComponent implements OnInit {
     const upload = new UploadModel();
     upload.file = this.selectedFile;
     upload.name = this.selectedFile.name;
-    this._api.uploadImage(upload).subscribe(r => this.success = r.success);
+    this._api.uploadImage(upload).subscribe(r => this.success = r.success, () => this.success = false);
   }
 
 }
