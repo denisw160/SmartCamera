@@ -1,0 +1,20 @@
+[
+  {
+    "id": "1",
+    "idImage": "1",
+    "meta": "?",
+    "value": "12345"
+  },
+  {
+    "id": "2",
+    "idImage": "1",
+    "meta": "?",
+    "value": "blah"
+  },
+  {
+    "id": "3",
+    "idImage": "1",
+    "meta": "?",
+    "value": ""
+  }
+]
