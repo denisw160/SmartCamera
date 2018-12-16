@@ -1,20 +1,20 @@
 [
   {
-    "id": "1",
+    "id": "1-2-3-4-5",
     "name": "mockup-1",
     "timestamp": "2018-11-02T19:43:57.629+0000",
     "processed": true,
     "tags": 3
   },
   {
-    "id": "2",
+    "id": "1-2-3-4-6",
     "name": "mockup-2",
     "timestamp": "2018-11-02T19:45:57.629+0000",
     "processed": true,
     "tags": 0
   },
   {
-    "id": "3",
+    "id": "1-2-3-4-7",
     "name": "mockup-3",
     "timestamp": "2018-11-02T19:46:57.629+0000",
     "processed": false,

@@ -1,0 +1,62 @@
+<div class="row">
+  <!-- List of images -->
+  <div class="col-md-4">
+    <p>Images</p>
+
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-action flex-column align-items-start"
+          *ngFor="let image of images" [ngClass]="{'active': selectedImage!=null && image.id==selectedImage.id}"
+          (click)="onSelect($event, image)">
+        <!-- Name of the image-->
+        <h5>{{image.name}}</h5>
+
+        <!-- Detail info -->
+        <div class="d-flex  justify-content-between">
+          <small>{{image.id}}</small>
+          <div>
+            <i class="fas fa-spinner text-primary" *ngIf="!image.processed"></i>
+            <i class="fas fa-exclamation-triangle text-warning" *ngIf="image.processed && image.tags==0"></i>
+            <span class="badge badge-primary badge-pill" *ngIf="image.processed && image.tags>0">{{image.tags}}</span>
+          </div>
+        </div>
+      </li>
+    </ul>
+
+    <div class="small text-muted" style="padding-top: 15px">
+      Legend:
+      <ul>
+        <li>
+          <i class="fas fa-spinner text-primary"></i> - Analyzing in progress
+        </li>
+        <li>
+          <i class="fas fa-exclamation-triangle text-warning"></i> - No information in image found
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Detail for the selected image -->
+  <div class="col-md-8">
+    <p>Results</p>
+
+    <table class="table">
+      <thead>
+      <tr>
+        <th scope="col">Meta</th>
+        <th scope="col">Value</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr *ngIf="details == null || details.length==0">
+        <td colspan="2" class="text-center">No data</td>
+      </tr>
+      <tr *ngFor="let detail of details">
+        <td>{{detail.meta}}</td>
+        <td>{{detail.value}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>

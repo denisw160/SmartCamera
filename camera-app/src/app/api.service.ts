@@ -4,6 +4,7 @@ import {Observable} from 'rxjs';
 
 import {environment} from '../environments/environment';
 import {ImageModel} from './model/image.model';
+import {ImageDetailModel} from './model/image-detail.model';
 
 @Injectable({
   providedIn: 'root'
@@ -26,22 +27,22 @@ export class ApiService {
   /**
    * Query all stored images from the backend.
    */
-  getImages(): Observable<ImageModel> {
+  getImages(): Observable<ImageModel[]> {
     if (this.mockUpMode) {
-      return this._http.get<ImageModel>('/assets/mock_api_images.json');
+      return this._http.get<ImageModel[]>('/assets/mock_api_images.json');
     } else {
-      return this._http.get<ImageModel>('/api/images');
+      return this._http.get<ImageModel[]>('/api/images');
     }
   }
 
   /**
    * Query all details for the image.
    */
-  getImageDetails(imageId: string): Observable<ImageModel> {
+  getImageDetails(imageId: string): Observable<ImageDetailModel[]> {
     if (this.mockUpMode) {
-      return this._http.get<ImageModel>('/assets/mock_api_image-details.json');
+      return this._http.get<ImageDetailModel[]>('/assets/mock_api_image-details.json');
     } else {
-      return this._http.get<ImageModel>('/api/image/' + imageId + '/');
+      return this._http.get<ImageDetailModel[]>('/api/image/' + imageId + '/');
     }
   }
 
