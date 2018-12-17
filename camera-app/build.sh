@@ -2,7 +2,7 @@
 #
 # Building the Angular App and the Docker image
 #
-# The Build for the app is started by angular cli.
+# The build for the app is started by angular cli.
 # Release files for the app stored in ./dist
 #
 # User must have access to Docker.
