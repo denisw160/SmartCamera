@@ -1,4 +1,5 @@
 import argparse
+import os
 
 import cv2
 from pyzbar import pyzbar
@@ -32,6 +33,11 @@ print " -output:", args["output"]
 print " -result:", args["result"]
 print " -display:", args["display"]
 print ""
+
+# test if input exists
+if not os.path.isfile(args["input"]):
+    print "File not found"
+    exit(1)
 
 # load the input image
 image = cv2.imread(args["input"])
