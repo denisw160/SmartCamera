@@ -81,6 +81,7 @@ cv2.imwrite(args["output"], image)
 
 # close json array
 result.write("]\n")
+result.close()
 
 # show the output image
 if args["display"]:
