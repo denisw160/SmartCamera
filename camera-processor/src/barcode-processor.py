@@ -71,3 +71,5 @@ result.write("]\n")
 if args["display"]:
     cv2.imshow("Result", image)
     cv2.waitKey(0)
+
+exit(0)
