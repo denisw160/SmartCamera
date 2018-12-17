@@ -26,7 +26,7 @@ ap.add_argument("-r", "--result", required=True, help="path to result file")
 ap.add_argument("-d", "--display", action='store_true', required=False, help="display the result")
 args = vars(ap.parse_args())
 
-print "Running BarcodeProcessor"
+print "Running BarcodeProcessor Version 1.0"
 print " -input:", args["input"]
 print " -output:", args["output"]
 print " -result:", args["result"]
