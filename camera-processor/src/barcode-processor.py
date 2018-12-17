@@ -5,9 +5,11 @@ from pyzbar import pyzbar
 
 #
 # This scripts is the processor for the barcodes.
-# The processor detects all bar- and qrcodes in the given image.
-# All readed barcodes will be written in the outputfile. The format of
-# the output is a JSON file.
+# The processor detects all bar- and qrcodes in the given image (input file).
+# All readed barcodes will be written in the result file. The format of
+# the output is a JSON file. The image with markup for the barcodes will be saved
+# in the output file.
+#
 #
 # Idea from: https://www.pyimagesearch.com/2018/05/21/an-opencv-barcode-and-qr-code-scanner-with-zbar/
 #
