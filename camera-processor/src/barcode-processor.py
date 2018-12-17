@@ -26,6 +26,13 @@ ap.add_argument("-r", "--result", required=True, help="path to result file")
 ap.add_argument("-d", "--display", action='store_true', required=False, help="display the result")
 args = vars(ap.parse_args())
 
+print "Running BarcodeProcessor"
+print " -input:", args["input"]
+print " -output:", args["output"]
+print " -result:", args["result"]
+print " -display:", args["display"]
+print ""
+
 # load the input image
 image = cv2.imread(args["input"])
 
@@ -54,7 +61,7 @@ for barcode in barcodes:
     cv2.putText(image, text, (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 2)
 
     # print the barcode type and data to the terminal
-    print("[INFO] Found {} barcode: {}".format(barcodeType, barcodeData))
+    print("Found {} barcode: {}".format(barcodeType, barcodeData))
 
     # store barcode in result file
     result.write("\t")
