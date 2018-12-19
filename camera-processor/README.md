@@ -1,16 +1,25 @@
+## CameraProcessor
 
-PIP
+### Description
+This module provides the python script for analyzing the images. The scripts uses OpenCV, Tesseract and ZBar for reading text and barcodes.
 
+These scripts are integrated in the CameraService, but you can execute the also standalone.
 
+### Requirements
+For executing and development with these scripts you need the following components and modules.
 
-argparse	1.2.1	1.4.0
+OpenCV for Python 2.x
 
-opencv-python	3.4.4.19	3.4.4.19
+bash\>sudo apt-get install -y python-opencv
 
-pip	18.1	18.1
-pytesseract	0.2.6	0.2.6
-pyzbar	0.1.7	0.1.7
+ZBar
 
-install tesseract
-install zbar
-install opencv
+bash\>sudo apt-get install -y libzbar0
+bash\>sudo pip install pyzbar
+
+Tesseract-OCR
+
+bash\>sudo apt-get install -y tesseract-ocr tesseract-ocr-eng tesseract-ocr-deu
+bash\>sudo pip install pytesseract
+
+For a simple setup you find in the root directory a script `setup.sh` for installing these modules on your Ubuntu system.  
