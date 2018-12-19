@@ -4,22 +4,29 @@
 #
 # User must have access to Docker.
 #
+# Usage: ./build.sh [-skipDocker]
+#  - with -skipDocker you can skip the Docker build
+# 
 
 NAME=camera-service
 TAG=LATEST
 
 # Building the service
 echo Building the service
-mvn clean package
+./mvnw clean package
 
-# Remove unused images
-echo Remove unused images
-docker image prune -a -f
+# Building Docker
+if [ "$1" != "-skipDocker" ]
+    then
+        # Remove unused images
+        #echo Remove unused images
+        #docker image prune -a -f
 
-# Building the image
-echo Building the image
-docker build -t $NAME:$TAG .
+        # Building the image
+        echo Building the image
+        docker build -t $NAME:$TAG .
 
-# Running the container
-echo Running the container on port 8888
-docker run --rm -it -p 8888:8080 $NAME:$TAG 
+        # Running the container
+        #echo Running the container on port 8889
+        #docker run --rm -it --name camera-service -p 8889:8080 $NAME:$TAG 
+fi

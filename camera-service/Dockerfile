@@ -4,9 +4,33 @@ FROM ubuntu:18.04
 RUN apt-get update
 RUN apt-get upgrade -y
 
-# Copy the configuration
-#COPY nginx.conf /etc/nginx/nginx.conf
+# Install needed packages
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y tzdata
 
-# Copy the 
-#WORKDIR /usr/share/nginx/html
-#COPY dist/camera-app/ .
+RUN apt-get install -y openjdk-11-jre
+
+RUN apt-get install -y python python-pip
+RUN apt-get install -y python-opencv
+RUN apt-get install -y libzbar0
+RUN apt-get install -y tesseract-ocr tesseract-ocr-eng tesseract-ocr-deu 
+
+# Install needed pip modules
+RUN pip install pyzbar
+RUN pip install pytesseract
+
+# Copy the build
+WORKDIR /
+COPY target/camera-service.jar /
+COPY target/*.py /
+
+# Expose port
+EXPOSE 8080
+
+# Run service
+ENTRYPOINT [ "/usr/bin/java", "-jar", "camera-service.jar" ]
+
+# For testing only
+#COPY src/test/sample/Sample1.png /sample.png
+#ENTRYPOINT [ "/usr/bin/python", "barcode-processor.py", "-i", "sample.png", "-o", "result.png", "-r", "result.json" ]
+#ENTRYPOINT [ "/usr/bin/python", "text-processor.py", "-i", "sample.png", "-r", "result.text" ]
+#ENTRYPOINT [ "bash" ]
