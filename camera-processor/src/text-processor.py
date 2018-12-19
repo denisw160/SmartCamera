@@ -19,7 +19,7 @@ import pytesseract
 #
 # require modules
 #  - opencv-python + pytesseract(pip)
-#  - opencv+ tesseract (apt)
+#  - opencv (opencv-python) + tesseract (apt)
 #
 
 # construct the argument parser and parse the arguments

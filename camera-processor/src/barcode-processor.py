@@ -16,7 +16,7 @@ from pyzbar import pyzbar
 #
 # require modules
 #  - opencv-python + pyzbar(pip)
-#  - opencv+ zbar (apt)
+#  - opencv (opencv-python) + zbar (libzbar0) (apt)
 #
 
 # construct the argument parser and parse the arguments
