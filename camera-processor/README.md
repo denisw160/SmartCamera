@@ -10,16 +10,16 @@ For executing and development with these scripts you need the following componen
 
 OpenCV for Python 2.x
 
-	bash\>sudo apt-get install -y python-opencv
+	bash>sudo apt-get install -y python-opencv
 
 ZBar
 
-	bash\>sudo apt-get install -y libzbar0
-	bash\>sudo pip install pyzbar
+	bash>sudo apt-get install -y libzbar0
+	bash>sudo pip install pyzbar
 
 Tesseract-OCR
 
-	bash\>sudo apt-get install -y tesseract-ocr tesseract-ocr-eng tesseract-ocr-deu
-	bash\>sudo pip install pytesseract
+	bash>sudo apt-get install -y tesseract-ocr tesseract-ocr-eng tesseract-ocr-deu
+	bash>sudo pip install pytesseract
 
 For a simple setup you find in the root directory a script `setup.sh` for installing these modules on your Ubuntu system.  
