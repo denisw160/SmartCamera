@@ -1,7 +1,7 @@
 <div class="row">
   <!-- List of images -->
   <div class="col-md-4">
-    <p>Images</p>
+    <h5>Images</h5>
 
     <ul class="list-group">
       <li class="list-group-item list-group-item-action flex-column align-items-start"
@@ -39,7 +39,7 @@
 
   <!-- Detail for the selected image -->
   <div class="col-md-8">
-    <p>Results</p>
+    <h5>Results</h5>
 
     <table class="table">
       <thead>
@@ -60,9 +60,16 @@
       </tbody>
     </table>
 
-    <div class="text-center">
-      <img class="img-fluid rounded" src="/image/{{selectedImage.id}}"
-           *ngIf="selectedImage!=null && selectedImage.id!=null">
+    <div *ngIf="selectedImage!=null && selectedImage.id!=null">
+      <h6>Processed image</h6>
+      <div class="text-center">
+        <img class="img-fluid rounded" src="/image/{{selectedImage.id}}/processed" alt="No processed image found">
+      </div>
+
+      <h6 style="margin-top: 15px;">Original image</h6>
+      <div class="text-center">
+        <img class="img-fluid rounded" src="/image/{{selectedImage.id}}" alt="No uploaded image found">
+      </div>
     </div>
   </div>
 
