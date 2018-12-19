@@ -29,13 +29,13 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ### Scripts
 To build the application and the Docker image use this script.
 
-bash\>build.sh
+	bash\>build.sh
 
 With the optional parameter `-skipDocker` you can skip the Docker build.
 
 To run the local server on Port 4200 you can use this script:
 
-bash\>run.sh
+	bash\>run.sh
 
 [1]:	https://github.com/angular/angular-cli
 [2]:	http://getbootstrap.com
