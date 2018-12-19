@@ -1,5 +1,5 @@
 # SmartCamera
-** Automatically identify our images **
+**Automatically identify our images**
 
 _State: Beta_
 
