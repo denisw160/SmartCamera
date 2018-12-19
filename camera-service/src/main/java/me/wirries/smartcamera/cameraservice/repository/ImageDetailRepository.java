@@ -2,6 +2,8 @@ package me.wirries.smartcamera.cameraservice.repository;
 
 import me.wirries.smartcamera.cameraservice.model.ImageDetail;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
@@ -21,5 +23,14 @@ public interface ImageDetailRepository extends JpaRepository<ImageDetail, String
      * @return List with details
      */
     List<ImageDetail> findAllByIdImageOrderByMeta(String idImage);
+
+    /**
+     * Count all image details.
+     *
+     * @param id Id of the image
+     * @return Count of details
+     */
+    @Query("select count(d) from ImageDetail as d where d.idImage = :idImage")
+    int countByIdImage(@Param("idImage") String id);
 
 }

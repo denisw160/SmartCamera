@@ -27,7 +27,7 @@ COPY target/*.py /
 EXPOSE 8080
 
 # Run service
-ENTRYPOINT [ "/usr/bin/java", "-jar", "camera-service.jar" ]
+ENTRYPOINT [ "/usr/bin/java", "-jar", "camera-service.jar", "--spring.profiles.active=production" ]
 
 # For testing only
 #COPY src/test/sample/Sample1.png /sample.png

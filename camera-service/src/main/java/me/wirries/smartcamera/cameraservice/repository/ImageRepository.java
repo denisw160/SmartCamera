@@ -24,4 +24,12 @@ public interface ImageRepository extends JpaRepository<Image, String> {
     @Query("from Image order by timestamp desc")
     List<Image> findAll();
 
+    /**
+     * Find all images with images data and is not processed.
+     *
+     * @return List with not processed images
+     */
+    @Query("select i from Image as i join ImageData as d on (i.id = d.idImage) where i.processed = false order by i.timestamp asc")
+    List<Image> findNotProcessed();
+
 }

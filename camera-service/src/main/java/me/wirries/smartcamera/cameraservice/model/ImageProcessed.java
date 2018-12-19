@@ -9,15 +9,15 @@ import javax.persistence.Lob;
 import javax.persistence.Table;
 
 /**
- * This class represents the upload of the file.
+ * This class represents the processed file.
  *
  * @author denisw
  * @version 1.0
- * @since 2018-12-16
+ * @since 2018-12-19
  */
 @Entity
-@Table(name = "DATA")
-public class ImageData {
+@Table(name = "PROCESSED")
+public class ImageProcessed {
 
     @Id
     private String idImage;
@@ -26,7 +26,7 @@ public class ImageData {
     @Lob
     private byte[] image;
 
-    public ImageData() {
+    public ImageProcessed() {
     }
 
     public String getIdImage() {
@@ -67,10 +67,10 @@ public class ImageData {
 
         if (o == null || getClass() != o.getClass()) return false;
 
-        ImageData imageData = (ImageData) o;
+        ImageProcessed imageProcessed = (ImageProcessed) o;
 
         return new EqualsBuilder()
-                .append(idImage, imageData.idImage)
+                .append(idImage, imageProcessed.idImage)
                 .isEquals();
     }
 
@@ -83,7 +83,7 @@ public class ImageData {
 
     @Override
     public String toString() {
-        return "ImageData{" +
+        return "ImageProcessed{" +
                 "idImage='" + idImage + '\'' +
                 ", mediaType='" + mediaType + '\'' +
                 ", extension='" + extension + '\'' +

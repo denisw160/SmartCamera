@@ -5,6 +5,7 @@ import me.wirries.smartcamera.cameraservice.model.*;
 import me.wirries.smartcamera.cameraservice.repository.ImageDataRepository;
 import me.wirries.smartcamera.cameraservice.repository.ImageDetailRepository;
 import me.wirries.smartcamera.cameraservice.repository.ImageRepository;
+import org.apache.commons.io.FilenameUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -98,6 +99,7 @@ public class ApiController {
             ImageData data = new ImageData();
             data.setIdImage(image.getId());
             data.setMediaType(uploadFile.getContentType());
+            data.setExtension(FilenameUtils.getExtension(upload.getName()));
             data.setImage(uploadFile.getBytes());
             dataRepository.save(data);
             LOGGER.debug("Image saved for id {}", image.getId());
