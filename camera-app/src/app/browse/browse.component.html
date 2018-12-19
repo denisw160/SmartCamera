@@ -14,7 +14,7 @@
         <div class="d-flex  justify-content-between">
           <small>{{image.id}}</small>
           <div>
-            <i class="fas fa-spinner text-primary" *ngIf="!image.processed"></i>
+            <i class="fas fa-spinner fa-pulse text-primary" *ngIf="!image.processed"></i>
             <i class="fas fa-exclamation-triangle text-warning" *ngIf="image.processed && image.tags==0"></i>
             <span class="badge badge-primary badge-pill" *ngIf="image.processed && image.tags>0">{{image.tags}}</span>
           </div>

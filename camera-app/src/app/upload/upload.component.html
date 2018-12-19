@@ -9,10 +9,14 @@
            (change)="onFileSelected($event)">
     <label class="custom-file-label" for="image" *ngIf="selectedFile==null">Choose file</label>
     <label class="custom-file-label" for="image" *ngIf="selectedFile!=null">{{selectedFile.name}}</label>
+    <p>
+      <small>File size max. 20 MB</small>
+    </p>
   </div>
 
   <div style="margin-top: 25px;margin-bottom: 25px;">
     <button type="button" class="btn btn-primary" (click)="onUpload()" [disabled]="selectedFile==null">Upload</button>
+    <i class="fas fa-spinner fa-pulse text-primary" style="margin-left: 15px" *ngIf="loading"></i>
   </div>
 
   <div class="alert alert-success" role="alert" *ngIf="success!=null && success">

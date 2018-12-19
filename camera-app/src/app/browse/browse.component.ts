@@ -28,4 +28,6 @@ export class BrowseComponent implements OnInit {
     this._api.getImageDetails(image.id).subscribe(details => this.details = details);
   }
 
+  // TODO AutoRefresh images
+
 }

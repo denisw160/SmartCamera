@@ -11,6 +11,7 @@ export class UploadComponent implements OnInit {
 
   selectedFile: File = null;
   success: boolean = null;
+  loading: boolean;
 
   constructor(private _api: ApiService) {
   }
@@ -27,7 +28,14 @@ export class UploadComponent implements OnInit {
     const upload = new UploadModel();
     upload.name = this.selectedFile.name;
 
-    this._api.uploadImage(upload, this.selectedFile).subscribe(r => this.success = r.success, () => this.success = false);
+    this.loading = true;
+    this._api.uploadImage(upload, this.selectedFile).subscribe(r => {
+      this.success = r.success;
+      this.loading = false;
+    }, () => {
+      this.success = false;
+      this.loading = false;
+    });
   }
 
 }
