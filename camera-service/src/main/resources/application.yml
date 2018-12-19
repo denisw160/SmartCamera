@@ -19,6 +19,11 @@ spring:
       enabled: true
       path: /h2
 
+  servlet:
+    multipart:
+      enabled: true
+      max-request-size: 25MB
+      max-file-size: 20MB
 
 # Logging
 logging.file: camera-service.log
