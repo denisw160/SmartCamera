@@ -39,3 +39,10 @@ logging:
       wirries:
         smartcamera:
           cameraservice: DEBUG
+
+# Application
+app:
+  security:
+    enable: false
+    username: user
+    password: xxx
