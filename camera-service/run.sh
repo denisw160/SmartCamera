@@ -5,7 +5,7 @@
 
 # Building the service
 echo Building the service
-mvn clean package
+./mvnw clean package
 
 # Running the service
 echo Running the service
