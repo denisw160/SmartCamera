@@ -27,8 +27,8 @@ ng build --prod
 if [ "$1" != "-skipDocker" ]
     then
         # Remove unused images
-        echo Remove unused images
-        docker image prune -a -f
+        #echo Remove unused images
+        #docker image prune -a -f
 
         # Building the image
         echo Building the image
