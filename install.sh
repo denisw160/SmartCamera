@@ -1,40 +1,53 @@
 #!/bin/bash
 #
-# Building the complete application and prepare the Docker images.
+# Build and install the Docker images.
+#
+# Only the camera-app has external access on port 10015.
 #
 # User must have access to Docker.
 #
+# Usage: ./build.sh [-skipBuild]
+#  - with -skipBuild you can skip the build
+#
+
+PREFIX=smartcamera
+TAG=latest
+
+PORT=10015
+
+SERVICE=camera-service
+APP=camera-app
 
 WORK_DIR=$(pwd)
 
-# Build the camera-service
-cd $WORK_DIR/camera-service
-./build.sh
+if [ "$1" != "-skipBuild" ]
+    then
+        # Build the camera-service
+        cd $WORK_DIR/camera-service
+        ./build.sh
 
-# Build the camera-app
-cd $WORK_DIR/camera-app
-./build.sh
+        # Build the camera-app
+        cd $WORK_DIR/camera-app
+        ./build.sh
+fi
 
-#NAME=camera-app
-#TAG=LATEST
+# Remove old container
+cd $WORK_DIR
+./uninstall.sh
 
-# Remove old build
-#echo Remove old build
-#rm -rf dist
+# Install the container
+echo Install the $SERVICE
+docker run -d \
+    --restart always \
+    --name $PREFIX-service \
+    $SERVICE:$TAG
 
-# Building the app
-#echo Building the app
-#npm install
-#ng build --prod
+echo Install the $APP
+docker run -d \
+    --restart always \
+    --name $PREFIX-app \
+    --link $PREFIX-service:apiserver \
+    -p $PORT:80 \
+    $APP:$TAG
 
-# Remove unused images
-#echo Remove unused images
-#docker image prune -a -f
-
-# Building the image
-#echo Building the image
-#docker build -t $NAME:$TAG .
-
-# Running the container
-#echo Running the container on port 8888
-#docker run --rm -it -p 8888:80 $NAME:$TAG 
+echo Open the application on http://$(hostname):$PORT

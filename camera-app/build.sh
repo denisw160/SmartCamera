@@ -12,7 +12,7 @@
 # 
 
 NAME=camera-app
-TAG=LATEST
+TAG=latest
 
 # Remove old build
 echo Remove old build

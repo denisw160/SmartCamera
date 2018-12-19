@@ -1,40 +1,17 @@
 #!/bin/bash
 #
-# Building the complete application and prepare the Docker images.
+# Stop und remove the container.
 #
 # User must have access to Docker.
 #
 
-WORK_DIR=$(pwd)
+PREFIX=smartcamera
 
-# Build the camera-service
-cd $WORK_DIR/camera-service
-./build.sh
+# Stopping and removing container
+echo Stopping container ...
+docker stop $PREFIX-app
+docker stop $PREFIX-service
 
-# Build the camera-app
-cd $WORK_DIR/camera-app
-./build.sh
-
-#NAME=camera-app
-#TAG=LATEST
-
-# Remove old build
-#echo Remove old build
-#rm -rf dist
-
-# Building the app
-#echo Building the app
-#npm install
-#ng build --prod
-
-# Remove unused images
-#echo Remove unused images
-#docker image prune -a -f
-
-# Building the image
-#echo Building the image
-#docker build -t $NAME:$TAG .
-
-# Running the container
-#echo Running the container on port 8888
-#docker run --rm -it -p 8888:80 $NAME:$TAG 
+echo Removing container ...
+docker rm $PREFIX-app
+docker rm $PREFIX-service

@@ -9,7 +9,7 @@
 # 
 
 NAME=camera-service
-TAG=LATEST
+TAG=latest
 
 # Building the service
 echo Building the service
