@@ -20,8 +20,18 @@ import {ApiService} from './api.service';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [ApiService],
+  providers: [
+    ApiService,
+    {provide: 'BASE_URL', useFactory: getBaseUrl}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
+}
+
+/**
+ * Return the base url of the application.
+ */
+export function getBaseUrl() {
+  return document.getElementsByTagName('base')[0].href;
 }

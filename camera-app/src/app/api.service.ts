@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {Inject, Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 
@@ -15,9 +15,10 @@ export class ApiService {
 
   private readonly mockUpMode: boolean;
 
-  constructor(private _http: HttpClient) {
+  constructor(private _http: HttpClient, @Inject('BASE_URL') private _baseHref: string) {
     this.mockUpMode = environment.mockUpMode;
     // console.debug('Run services in mockUp mode: ' + this.mockUpMode);
+    // console.debug('Run services for baseUrl: ' + this._baseHref);
   }
 
   /**
@@ -25,9 +26,9 @@ export class ApiService {
    */
   getImages(): Observable<ImageModel[]> {
     if (this.mockUpMode) {
-      return this._http.get<ImageModel[]>('/assets/mock_api_images.json');
+      return this._http.get<ImageModel[]>(this._baseHref + 'assets/mock_api_images.json');
     } else {
-      return this._http.get<ImageModel[]>('/api/image');
+      return this._http.get<ImageModel[]>(this._baseHref + 'api/image');
     }
   }
 
@@ -36,9 +37,9 @@ export class ApiService {
    */
   getImageDetails(idImage: string): Observable<ImageDetailModel[]> {
     if (this.mockUpMode) {
-      return this._http.get<ImageDetailModel[]>('/assets/mock_api_image-details.json');
+      return this._http.get<ImageDetailModel[]>(this._baseHref + 'assets/mock_api_image-details.json');
     } else {
-      return this._http.get<ImageDetailModel[]>('/api/image/' + idImage + '/detail');
+      return this._http.get<ImageDetailModel[]>(this._baseHref + 'api/image/' + idImage + '/detail');
     }
   }
 
@@ -51,7 +52,7 @@ export class ApiService {
    */
   uploadImage(upload: UploadModel, uploadFile: File): Observable<UploadResponseModel> {
     if (this.mockUpMode) {
-      return this._http.get<UploadResponseModel>('/assets/mock_api_upload-response.json');
+      return this._http.get<UploadResponseModel>(this._baseHref + 'assets/mock_api_upload-response.json');
     } else {
       const httpOptions = {
         headers: new HttpHeaders({
@@ -64,7 +65,7 @@ export class ApiService {
       formData.append('upload', JSON.stringify(upload));
       formData.append('uploadFile', uploadFile, uploadFile.name);
 
-      return this._http.post<UploadResponseModel>('/api/upload', formData, httpOptions);
+      return this._http.post<UploadResponseModel>(this._baseHref + 'api/upload', formData, httpOptions);
     }
   }
 
