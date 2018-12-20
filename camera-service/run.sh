@@ -10,4 +10,4 @@ echo Building the service
 # Running the service
 echo Running the service
 cd target
-java -jar camera-service.jar
+java -jar camera-service.jar --spring.profiles.active=production
