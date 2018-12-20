@@ -7,3 +7,4 @@
 
 - Add a database system (MariaDB or MongoDB)
 - Add more ML for ide
+- Add authentication for backend api (https://serverfault.com/questions/230749/how-to-use-nginx-to-proxy-to-a-host-requiring-authentication)
