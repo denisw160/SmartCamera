@@ -1,6 +1,7 @@
 ## Tasks and open points
 
 - Implement a search function for barcodes and texts
+- Implement unit tests for service
 
 ## Ideas and next steps
 
