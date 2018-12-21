@@ -2,6 +2,7 @@
 
 - Implement a search function for barcodes and texts
 - Implement unit tests for service
+- Store the time of processing
 
 ## Ideas and next steps
 
