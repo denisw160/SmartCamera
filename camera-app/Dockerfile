@@ -1,10 +1,6 @@
 ### STAGE 1: Build the app
 FROM node:10-alpine as builder
 
-# Initialize the packages
-COPY package.json package-lock.json ./
-RUN npm i && mkdir /ng-app && mv ./node_modules ./ng-app
-
 # Build argument for the base url
 ARG basehref=/
 
@@ -12,6 +8,7 @@ ARG basehref=/
 WORKDIR /ng-app
 COPY . .
 RUN echo "Set base-href to ${basehref}"
+RUN npm i
 RUN $(npm bin)/ng build --prod --base-href ${basehref}
 
 ### STAGE 2: Setup the image
