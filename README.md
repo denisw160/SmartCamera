@@ -60,9 +60,9 @@ To make the application easier to use on the SmartPhone, it can be placed direct
 ## Scripts
 To build the entire application and the Docker image use this script:
 
-	bash>build.sh
+	bash>build.sh [/yourPath/]
 
-With the optional parameter `-skipDocker` you can skip the Docker build.
+With the optional paramter you can setup the base-href to /yourPath/ in your Angular app.
 
 To run the local application server on port 4200 and the service on port 8080  you can use this script:
 

@@ -4,8 +4,8 @@
 #
 # User must have access to Docker.
 #
-# Usage: ./build.sh [-skipDocker]
-#  - with -skipDocker you can skip the Docker build
+# Usage: ./build.sh [/yourPath/]
+#  - setup the basehref to /yourPath/ in your Angular app
 # 
 
 WORK_DIR=$(pwd)
@@ -16,4 +16,4 @@ cd $WORK_DIR/camera-service
 
 # Build the camera-app
 cd $WORK_DIR/camera-app
-./build.sh $1
+./build.sh

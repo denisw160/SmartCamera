@@ -7,4 +7,5 @@
 #
 
 echo Running the angular application
+npm install
 ng serve --proxy-config proxy.json

@@ -29,9 +29,9 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ### Scripts
 To build the application and the Docker image use this script.
 
-	bash>build.sh
+	bash>build.sh [/yourPath/]
 
-With the optional parameter `-skipDocker` you can skip the Docker build.
+With the optional paramter you can setup the base-href to /yourPath/ in your Angular app.
 
 To run the local server on Port 4200 you can use this script:
 
