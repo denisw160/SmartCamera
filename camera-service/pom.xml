@@ -100,7 +100,7 @@
                             <outputDirectory>${basedir}/target</outputDirectory>
                             <resources>
                                 <resource>
-                                    <directory>${basedir}/../camera-processor/src/</directory>
+                                    <directory>${basedir}/src/main/py</directory>
                                     <include>*.py</include>
                                 </resource>
                             </resources>

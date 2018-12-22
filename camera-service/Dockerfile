@@ -1,3 +1,12 @@
+### STAGE 1: Build the app
+FROM maven:3-jdk-11 as builder
+
+# Building the app
+WORKDIR /java-app
+COPY . .
+RUN mvn clean package
+
+## STAGE 2: Setup the image
 FROM ubuntu:18.04
 
 # Update release
@@ -20,8 +29,8 @@ RUN pip install pytesseract
 
 # Copy the build
 WORKDIR /
-COPY target/camera-service.jar /
-COPY target/*.py /
+COPY --from=builder /java-app/target/camera-service.jar /
+COPY --from=builder /java-app/target/*.py /
 
 # Expose port
 EXPOSE 8080

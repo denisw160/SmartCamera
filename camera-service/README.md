@@ -8,8 +8,6 @@ To build the application and the Docker image use this script.
 
 	bash>build.sh
 
-With the optional parameter `-skipDocker` you can skip the Docker build.
-
 To run the local server on Port 8080 you can use this script:
 
 	bash>run.sh
