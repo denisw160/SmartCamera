@@ -5,7 +5,7 @@
 # User must have access to Docker.
 #
 # Usage: ./build.sh [/yourPath/]
-#  - setup the basehref to /yourPath/ in your Angular app
+#  - setup the base-href to /yourPath/ in your Angular app
 # 
 
 WORK_DIR=$(pwd)

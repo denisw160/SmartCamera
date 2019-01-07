@@ -1,10 +1,14 @@
-### STAGE 1: Build the app
+### STAGE 1: Build the service
 FROM maven:3-jdk-11 as builder
 
-# Building the app
+# Prepare the build (if no changes in pom.xml, the cache will used)
 WORKDIR /java-app
+COPY pom.xml pom.xml
+RUN mvn dependency:resolve dependency:resolve-plugins
+
+# Building the service
 COPY . .
-RUN mvn clean package
+RUN mvn -DskipTests clean package
 
 ## STAGE 2: Setup the image
 FROM ubuntu:18.04

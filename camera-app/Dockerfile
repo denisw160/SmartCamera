@@ -2,14 +2,18 @@
 FROM node:10-alpine as builder
 
 # Build argument for the base url
-ARG basehref=/
+ARG BASE_HREF=/
+
+# Prepare the build (if no changes in package.json, the cache will used)
+WORKDIR /ng-app
+COPY package.json package.json
+COPY package-lock.json package-lock.json
+RUN npm i
 
 # Building the app
-WORKDIR /ng-app
 COPY . .
-RUN echo "Set base-href to ${basehref}"
-RUN npm i
-RUN $(npm bin)/ng build --prod --base-href ${basehref}
+RUN echo "Set base-href to ${BASE_HREF}"
+RUN $(npm bin)/ng build --prod --base-href ${BASE_HREF}
 
 ### STAGE 2: Setup the image
 FROM nginx:alpine
