@@ -36,11 +36,14 @@ WORKDIR /
 COPY --from=builder /java-app/target/camera-service.jar /
 COPY --from=builder /java-app/target/*.py /
 
+# Store data
+VOLUME /data
+
 # Expose port
 EXPOSE 8080
 
 # Run service
-ENTRYPOINT [ "/usr/bin/java", "-jar", "camera-service.jar", "--spring.profiles.active=production" ]
+ENTRYPOINT [ "/usr/bin/java", "-jar", "camera-service.jar", "--spring.profiles.active=production", "--spring.datasource.url=jdbc:h2:file:/data" ]
 
 # For testing only
 #COPY src/test/sample/Sample1.png /sample.png
