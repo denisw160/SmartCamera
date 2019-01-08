@@ -11,7 +11,7 @@ spring:
   # JPA configuration
   jpa:
     hibernate:
-      ddl-auto: create-drop # TODO change
+      ddl-auto: update
 
   # H2 configuration
   h2:
