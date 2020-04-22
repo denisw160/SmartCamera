@@ -43,7 +43,7 @@ VOLUME /data
 EXPOSE 8080
 
 # Run service
-ENTRYPOINT [ "/usr/bin/java", "-jar", "camera-service.jar", "--spring.profiles.active=production", "--spring.datasource.url=jdbc:h2:file:/data/smartcamera" ]
+ENTRYPOINT [ "java", "-jar", "camera-service.jar", "--spring.profiles.active=production", "--spring.datasource.url=jdbc:h2:file:/data/smartcamera" ]
 
 # For testing only
 #COPY src/test/sample/Sample1.png /sample.png
